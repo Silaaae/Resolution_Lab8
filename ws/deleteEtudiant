@@ -1,0 +1,10 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    include_once 'C:/Xamp/htdocs/Projet_Lab5/service/EtudiantService.php';
+    $id = $_POST['id'];
+    $es = new EtudiantService();
+    $es->deleteById($id);
+    header('Content-Type: application/json');
+    echo json_encode($es->findAllApi());
+}
+?>
